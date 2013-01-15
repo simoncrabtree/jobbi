@@ -20,5 +20,25 @@ jobbiApp.controller('JobController', function($scope, $routeParams) {
     var matchingJobs = data.jobs.filter(function (job) {
         return (job.id === jobId);
     });
+
     $scope.job = matchingJobs[0];
+
+    $scope.takePhoto = function () {
+        console.log("Taking Photo... say cheese!");
+        var options = {
+            quality: 50,
+            destinationType: Camera.DestinationType.DATA_URL,
+            sourceType: 1,
+            encodingType: 0
+        };
+        navigator.camera.getPicture(
+            function (imageData) {
+        },
+        function () {
+            console.log("ERROR taking photo");
+        },
+        options
+        );
+    }
+
 });
