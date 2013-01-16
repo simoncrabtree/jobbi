@@ -23,8 +23,10 @@ jobbiApp.controller('JobController', function($scope, $routeParams) {
 
     $scope.job = matchingJobs[0];
 
+    $scope.job.imageData;
+
     $scope.takePhoto = function () {
-        console.log("Taking Photo... say cheese!");
+        console.log("Taking Photo... say cheese now!");
         var options = {
             quality: 50,
             destinationType: Camera.DestinationType.DATA_URL,
@@ -33,6 +35,9 @@ jobbiApp.controller('JobController', function($scope, $routeParams) {
         };
         navigator.camera.getPicture(
             function (imageData) {
+                console.log("Took Photo" + imageData);
+                $scope.job.imageData = "data:image/jpeg;base64," + imageData;
+                $scope.$apply();
         },
         function () {
             console.log("ERROR taking photo");
