@@ -1,10 +1,20 @@
 'use strict';
 
 var data = {
-    jobs: [
-        {id: "1", description: "Service boiler"},
-        {id: "2", description: "Fit new radiator in hallway"},
-        {id: "3", description: "Check taps in kitchen"}
+
+    jobs: [{id: "1",
+        address: "1 Broad Street, BD1 23F",
+        tasks: [
+            {id: "1", description: "Service boiler"},
+            {id: "2", description: "Fit new radiator in hallway"},
+            {id: "3", description: "Check taps in kitchen"},
+            {id: "4", description: "Replace fusebox"}
+        ]},
+        {id: "2",
+            address: "392 High Street, LS2 9AE",
+            tasks: [
+                {id: "1", description: "Repair leaking tap in bathroom"}
+            ]}
     ]
 };
 
@@ -35,9 +45,9 @@ jobbiApp.controller('JobController', function($scope, $routeParams) {
         };
         navigator.camera.getPicture(
             function (imageData) {
-                console.log("Took Photo" + imageData);
-                $scope.job.imageData = "data:image/jpeg;base64," + imageData;
-                $scope.$apply();
+            console.log("Took Photo" + imageData);
+            $scope.job.imageData = "data:image/jpeg;base64," + imageData;
+            $scope.$apply();
         },
         function () {
             console.log("ERROR taking photo");
