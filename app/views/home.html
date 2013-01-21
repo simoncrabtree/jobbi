@@ -1,7 +1,19 @@
-<div class="hero-unit">
-  <h1>Jobbi</h1>
-  <p>You have {{jobCount()}} jobs</p>
-  <ul>
-      <li ng-repeat="job in jobs"><a href="#/job/{{job.id}}">{{job.address}}</a></li>
-  </ul>
+<div class="header">
+    <h1>Jobbi</h1>
+    <p>You have {{jobCount()}} jobs</p>
+</div>
+<div id="jobList" class="accordion scroll">
+    <div ng-repeat="job in jobs">
+        <div class="job active-{{job.isActive}}" ng-click="select(job)">
+            <div>{{job.address}}</div>
+            <div class="job-details display-{{job.isSelected}}">
+                <div ng-repeat="task in job.tasks">
+                    <div class="task">{{task.description}}</div>
+                </div>
+                <div class="activity-buttons">
+                    <button class="btn" ng-click="depart(job)">Depart</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

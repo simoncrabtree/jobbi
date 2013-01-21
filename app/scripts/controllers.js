@@ -14,15 +14,44 @@ var data = {
             address: "392 High Street, LS2 9AE",
             tasks: [
                 {id: "1", description: "Repair leaking tap in bathroom"}
-            ]}
+            ]},
+        {id: "3", address: "70 Green Drive, WA15 6JW"},
+        {id: "3", address: "70 Green Drive, WA15 6JW"},
+        {id: "3", address: "70 Green Drive, WA15 6JW"},
+        {id: "3", address: "70 Green Drive, WA15 6JW"},
+        {id: "3", address: "70 Green Drive, WA15 6JW"},
+        {id: "3", address: "70 Green Drive, WA15 6JW"},
+        {id: "3", address: "70 Green Drive, WA15 6JW"},
+        {id: "3", address: "70 Green Drive, WA15 6JW"},
+        {id: "3", address: "70 Green Drive, WA15 6JW"},
+        {id: "3", address: "70 Green Drive, WA15 6JW"},
     ]
 };
 
 jobbiApp.controller('HomeController', function($scope) {
+    $scope.jobs = [];
+    data.jobs.forEach(function (job) {
+        var modelJob = job;
+        modelJob.isSelected = false;
+        modelJob.isActive = false;
+        $scope.jobs.push(modelJob);
+    });
+    $scope.selectedJob;
+    $scope.activeJob;
     $scope.jobCount = function () {
         return $scope.jobs.length;
     };
-    $scope.jobs = data.jobs;
+    $scope.select = function (job) {
+        console.log("Selecting", job);
+        if ($scope.selectedJob ) $scope.selectedJob.isSelected = false;
+        job.isSelected = true;
+        $scope.selectedJob = job;
+    };
+    $scope.depart = function (job) {
+        console.log("Departing", job);
+        job.isActive = true;
+        $scope.activeJob = job;
+    };
 });
 
 jobbiApp.controller('JobController', function($scope, $routeParams) {

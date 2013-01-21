@@ -1,5 +1,36 @@
 /* Will be compiled down to a single stylesheet with your sass files */
-li {
-    line-height: 2em;
-    font-size: 2em;
+body {
+    width: 100%
+}
+
+.header {
+    border-bottom: solid 2px #999;
+    padding: 0.5em;
+}
+.scroll {
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    position: absolute;
+    top: 106px;
+    bottom: 0px;
+    left: 0px;
+    right 0px;
+}
+
+#jobList {
+    width: 100%
+}
+
+.job {
+    padding: 0.5em;
+    border-bottom: solid 1px #ddd;
+}
+.job.active-true {
+    background-color: palegreen;
+}
+.display-false {
+    display: none;
+}
+.display-true {
+    display: block;
 }
