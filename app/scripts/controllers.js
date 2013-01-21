@@ -36,6 +36,7 @@ jobbiApp.controller('HomeController', function($scope) {
         modelJob.isActive = false;
         $scope.jobs.push(modelJob);
     });
+    $scope.mode = "list";
     $scope.selectedJob;
     $scope.activeJob;
     $scope.jobCount = function () {
@@ -46,12 +47,19 @@ jobbiApp.controller('HomeController', function($scope) {
         if ($scope.selectedJob ) $scope.selectedJob.isSelected = false;
         job.isSelected = true;
         $scope.selectedJob = job;
+        $scope.mode = "details";
     };
     $scope.depart = function (job) {
         console.log("Departing", job);
         job.isActive = true;
         $scope.activeJob = job;
     };
+    $scope.unSelect = function () {
+        $scope.selectedJob.isSelected = false;
+        $scope.selectedJob = undefined;
+        $scope.mode = "list";
+
+    }
 });
 
 jobbiApp.controller('JobController', function($scope, $routeParams) {
