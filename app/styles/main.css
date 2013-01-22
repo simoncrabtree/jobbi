@@ -6,15 +6,28 @@ body {
 .header {
     padding: 0.5em;
     background-color: rgb(161, 183, 223);
+    height: 6em;
 }
+.content {
+    width: 100%;
+}
+
 .scroll {
     overflow: auto;
     -webkit-overflow-scrolling: touch;
     position: absolute;
-    top: 106px;
-    bottom: 0px;
+    top: 7em;
+    bottom: 2.5em;
     left: 0px;
     right 0px;
+}
+.bottom-bar {
+    position: absolute;
+    bottom: 0;
+    padding: 0.5em 0;
+    height: 2.5em;
+    background-color: #ddd;
+    width: 100%;
 }
 
 #jobList {
@@ -33,10 +46,9 @@ body {
     display: none;
 }
 
-.mode-list #jobDetails {
+.mode-list #jobDetails, .mode-list .job-state-change-buttons {
     display: none;
 }
-
 
 .job {
     padding: 0.5em;
@@ -80,13 +92,7 @@ body {
     }
 
     .scroll {
-        overflow: auto;
-        -webkit-overflow-scrolling: touch;
-        position: absolute;
         top: 5em;
-        bottom: 0px;
-        left: 0px;
-        right 0px;
     }
 }
 /* iPads (landscape) ----------- */

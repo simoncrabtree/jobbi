@@ -3,19 +3,11 @@
         <h1>Jobbi</h1>
         <div class="job-count">You have {{jobCount()}} jobs</div>
     </div>
-    <div class="content">
-        <div id="jobList" class="scroll">
+    <div class="content scroll">
+        <div id="jobList">
             <div ng-repeat="job in jobs">
                 <div class="job active-{{job.isActive}}" ng-click="select(job)">
                     <div>{{job.address}}</div>
-                    <div class="job-details display-{{job.isSelected}}">
-                        <div ng-repeat="task in job.tasks">
-                            <div class="task">{{task.description}}</div>
-                        </div>
-                        <div class="activity-buttons">
-                            <button class="btn btn-success" ng-click="depart(job)">Depart</button>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -28,7 +20,11 @@
             <ul ng-repeat="task in selectedJob.tasks">
                 <li>{{task.description}}</li>
             </ul>
-            <button class="btn btn-link" ng-click="unSelect()">cancel</button>
+        </div>
+    </div>
+    <div class="bottom-bar">
+        <div class="job-state-change-buttons">
+            <button class="btn btn-link" ng-click="unSelect()">back</button>
             <button class="btn btn-success" ng-click="depart(selectedJob)">depart</button>
         </div>
     </div>

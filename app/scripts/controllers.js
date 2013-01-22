@@ -53,6 +53,7 @@ jobbiApp.controller('HomeController', function($scope) {
         console.log("Departing", job);
         job.isActive = true;
         $scope.activeJob = job;
+        $scope.mode = "list";
     };
     $scope.unSelect = function () {
         $scope.selectedJob.isSelected = false;
