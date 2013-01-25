@@ -15,7 +15,11 @@ var data = {
             tasks: [
                 {id: "1", description: "Repair leaking tap in bathroom"}
             ]},
-        {id: "3", address: "70 Green Drive, WA15 6JW"}
+        {id: "3",
+            address: "70 Green Drive, WA15 6JW",
+            tasks: [
+                {id:"1", description: "Repairs to flat roof"}
+            ]}
     ]
 };
 
