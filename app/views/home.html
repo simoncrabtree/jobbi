@@ -6,7 +6,7 @@
     <div class="content scroll">
         <div id="jobList">
             <div ng-repeat="job in jobs">
-                <div class="job active-{{job.isActive}}" ng-click="select(job)">
+                <div class="job state-{{job.state}}" ng-click="select(job)">
                     <div>{{job.address}}</div>
                 </div>
             </div>
@@ -20,12 +20,15 @@
             <ul ng-repeat="task in selectedJob.tasks">
                 <li>{{task.description}}</li>
             </ul>
+            <img id="savedSignature" class="show-{{showSavedSignature()}}" src="{{getImageSrc()}}" />
+            <div id="signature" class="show-{{showSignatureCapture()}}"></div>
         </div>
     </div>
     <div class="bottom-bar">
-        <div class="job-state-change-buttons">
-            <button class="btn btn-link" ng-click="unSelect()">back</button>
-            <button class="btn btn-success" ng-click="depart(selectedJob)">depart</button>
+        <div class="job-state-change-buttons state-{{selectedJob.state}}">
+            <button id="btnBack" class="btn btn-link" ng-click="unSelect()">back</button>
+            <button id="btnDepart" class="btn btn-success" ng-click="depart()">depart</button>
+            <button id="btnGotSignature"class="btn" ng-click="captureSig()">signed!</button>
         </div>
     </div>
 </div>

@@ -37,37 +37,54 @@ var data = {
 
 jobbiApp.controller('HomeController', function($scope) {
     $scope.jobs = [];
+    var sigDiv = $("#signature");
+    sigDiv.jSignature();
+    sigDiv.jSignature("reset");
+
     data.jobs.forEach(function (job) {
         var modelJob = job;
+        modelJob.state = "pending";
         modelJob.isSelected = false;
         modelJob.isActive = false;
+        modelJob.readyForSignature = false;
         $scope.jobs.push(modelJob);
     });
     $scope.mode = "list";
     $scope.selectedJob;
-    $scope.activeJob;
     $scope.jobCount = function () {
         return $scope.jobs.length;
     };
     $scope.select = function (job) {
-        console.log("Selecting", job);
-        if ($scope.selectedJob ) $scope.selectedJob.isSelected = false;
-        job.isSelected = true;
         $scope.selectedJob = job;
         $scope.mode = "details";
     };
-    $scope.depart = function (job) {
-        console.log("Departing", job);
-        job.isActive = true;
-        $scope.activeJob = job;
+    $scope.depart = function () {
+        $scope.selectedJob.state = "isActive";
         $scope.mode = "list";
     };
+    $scope.captureSig = function () {
+        $scope.selectedJob.state = "signatureCaptured";
+        $scope.selectedJob.signature = sigDiv.jSignature("getData", "svgbase64");
+        $scope.selectedJob.state = "isComplete";
+    }
     $scope.unSelect = function () {
         $scope.selectedJob.isSelected = false;
         $scope.selectedJob = undefined;
         $scope.mode = "list";
-
+    };
+    $scope.showSavedSignature = function () {
+        if ($scope.selectedJob.state === "isComplete") {
+            return true;
+        }
+        return false;
+    };
+    $scope.showSignatureCapture = function () {
+        return ($scope.selectedJob.state === "isActive");
     }
+    $scope.getImageSrc = function () {
+        return "data:" + $scope.selectedJob.signature[0] + "," + $scope.selectedJob.signature[1];
+    }
+
 });
 
 jobbiApp.controller('JobController', function($scope, $routeParams) {

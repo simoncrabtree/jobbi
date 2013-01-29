@@ -30,6 +30,10 @@ body {
     width: 100%;
 }
 
+.show-false {
+    display: none;
+}
+
 #jobList {
     width: 100%
 }
@@ -50,11 +54,24 @@ body {
     display: none;
 }
 
+.job-state-change-buttons .btn {
+    display: none;
+}
+
+.job-state-change-buttons #btnBack {
+    display: inline;
+}
+.job-state-change-buttons.state-pending #btnDepart {
+    display: inline;
+}
+.job-state-change-buttons.state-isActive #btnGotSignature {
+    display: inline;
+}
 .job {
     padding: 0.5em;
     border-bottom: solid 1px #ddd;
 }
-.job.active-true {
+.job.state-isActive {
     background-color: palegreen;
 }
 .display-false {
@@ -63,6 +80,9 @@ body {
 .display-true {
     display: block;
 }
+
+
+
 
 /* iPhone 4 ----------- */
 @media screen and (max-device-width: 480px) {
