@@ -41,6 +41,11 @@ jobbiApp.controller('HomeController', function($scope) {
     sigDiv.jSignature();
     sigDiv.jSignature("reset");
 
+    var icons = {
+        "isActive": "briefcase",
+        "isSuspended": "pause",
+        "isComplete": "check"
+    }
     data.jobs.forEach(function (job) {
         var modelJob = job;
         modelJob.state = "pending";
@@ -88,10 +93,14 @@ jobbiApp.controller('HomeController', function($scope) {
         return false;
     };
     $scope.showSignatureCapture = function () {
-        return ($scope.selectedJob.state === "isActive");
+        return ($scope.selectedJob && $scope.selectedJob.state === "isActive");
     }
     $scope.getImageSrc = function () {
         return "data:" + $scope.selectedJob.signature[0] + "," + $scope.selectedJob.signature[1];
+    }
+    $scope.getStatusIcon = function (job) {
+        console.log("Getting State of job", job);
+        return icons[job.state];
     }
 
 });
