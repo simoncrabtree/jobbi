@@ -27,8 +27,10 @@
     <div class="bottom-bar">
         <div class="job-state-change-buttons state-{{selectedJob.state}}">
             <button id="btnBack" class="btn btn-link" ng-click="unSelect()">back</button>
-            <button id="btnDepart" class="btn btn-success" ng-click="depart()">depart</button>
-            <button id="btnGotSignature"class="btn" ng-click="captureSig()">signed!</button>
+            <button id="btnDepart" class="btn btn-success" ng-click="depart()"><i class="icon-road icon-white"></i>depart</button>
+            <button id="btnGotSignature"class="btn" ng-click="captureSig()"><i class="icon-thumbs-up icon"></i>signed!</button>
+            <button id="btnSuspend" class="btn btn-warning" ng-click="suspend()"><i class="icon-pause icon-white"></i>suspend</button>
+            <button id="btnResume" class="btn btn-success" ng-click="resume()"><i class="icon-play icon-white"></i>resume</button>
         </div>
     </div>
 </div>

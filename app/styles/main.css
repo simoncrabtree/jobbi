@@ -70,12 +70,21 @@ body {
 .job-state-change-buttons.state-isActive #btnGotSignature {
     display: inline;
 }
+.job-state-change-buttons.state-isActive #btnSuspend {
+    display: inline;
+}
+.job-state-change-buttons.state-isSuspended #btnResume {
+    display: inline;
+}
 .job {
     padding: 0.5em;
     border-bottom: solid 1px #ddd;
 }
 .job.state-isActive {
     background-color: palegreen;
+}
+.job.state-isSuspended {
+    background-color: #FFD548;
 }
 .display-false {
     display: none;

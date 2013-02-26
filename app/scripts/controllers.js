@@ -62,6 +62,14 @@ jobbiApp.controller('HomeController', function($scope) {
         $scope.selectedJob.state = "isActive";
         $scope.mode = "list";
     };
+    $scope.suspend = function () {
+        $scope.selectedJob.state = "isSuspended";
+        $scope.mode = "list";
+    }
+    $scope.resume = function () {
+        $scope.selectedJob.state = "isActive";
+        $scope.mode = "list";
+    }
     $scope.captureSig = function () {
         $scope.selectedJob.state = "signatureCaptured";
         $scope.selectedJob.signature = sigDiv.jSignature("getData", "svgbase64");
