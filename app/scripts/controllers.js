@@ -55,7 +55,7 @@ jobbiApp.controller('HomeController', function($scope) {
         $scope.jobs.push(modelJob);
     });
     $scope.mode = "list";
-    $scope.selectedJob;
+    $scope.selectedJob = {};
     $scope.jobCount = function () {
         return $scope.jobs.length;
     };
