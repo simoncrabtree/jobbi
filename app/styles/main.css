@@ -46,6 +46,9 @@ body {
     padding: 0.5em;
 }
 
+#signature {
+    height: 100px;
+}
 .mode-details #jobList {
     display: none;
 }
