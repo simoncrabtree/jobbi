@@ -65,6 +65,7 @@ jobbiApp.controller('HomeController', function($scope) {
     $scope.captureSig = function () {
         $scope.selectedJob.state = "signatureCaptured";
         $scope.selectedJob.signature = sigDiv.jSignature("getData", "svgbase64");
+        sigDiv.jSignature("reset");
         $scope.selectedJob.state = "isComplete";
     }
     $scope.unSelect = function () {
