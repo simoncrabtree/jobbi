@@ -96,7 +96,10 @@ jobbiApp.controller('HomeController', function($scope) {
         return ($scope.selectedJob && $scope.selectedJob.state === "isActive");
     }
     $scope.getImageSrc = function () {
-        return "data:" + $scope.selectedJob.signature[0] + "," + $scope.selectedJob.signature[1];
+        if ($scope.selectedJob.signature) {
+            return "data:" + $scope.selectedJob.signature[0] + "," + $scope.selectedJob.signature[1];
+        }
+        return "";
     }
     $scope.getStatusIcon = function (job) {
         console.log("Getting State of job", job);
